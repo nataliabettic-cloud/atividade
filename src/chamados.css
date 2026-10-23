@@ -1,0 +1,318 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.pagina {
+  min-height: 100vh;
+  margin: 7px 12px 0 4px;
+  padding: 29px 5% 30px;
+  background: #492e38;
+  border: 1px solid #aaa;
+}
+
+.pagina h1 {
+  margin: 0 0 14px;
+  color: #ff80bd;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 400;
+  text-align: center;
+}
+
+.barra-acoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 0 1.8% 17px;
+}
+
+.pesquisa {
+  display: flex;
+  align-items: center;
+  width: 132px;
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: #fff;
+  color: #222;
+}
+
+.pesquisa input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+
+.pesquisa input::placeholder {
+  color: #aaa;
+}
+
+.pesquisa span {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
+.botao-novo,
+.botao-detalhes,
+.botao-cancelar {
+  border: 0;
+  border-radius: 20px;
+  background: #e65d9e;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.botao-novo {
+  padding: 4px 13px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.botao-novo:hover,
+.botao-detalhes:hover {
+  background: #f17ab5;
+  transform: translateY(-1px);
+}
+
+.lista-chamados {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 338px));
+  justify-content: space-between;
+  align-items: start;
+  gap: 19px 30px;
+}
+
+.chamado-card {
+  position: relative;
+  min-height: 209px;
+  padding: 13px 8px 42px;
+  border: 1.5px solid #f05ca4;
+  border-radius: 27px;
+  background: transparent;
+  font-size: 16px;
+}
+
+.chamado-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.prioridade {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.prioridade i {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.prioridade-critico {
+  color: #e60060;
+}
+
+.prioridade-medio {
+  color: #ff7b80;
+}
+
+.prioridade-baixo {
+  color: #ffb6c1;
+}
+
+.dados-principais p,
+.dados-secundarios p {
+  margin: 0;
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+}
+
+.dados-principais span,
+.dados-secundarios span {
+  color: #f05ca4;
+}
+
+.dados-secundarios {
+  margin: 40px 3px 0;
+}
+
+.botao-detalhes {
+  position: absolute;
+  right: 14px;
+  bottom: 8px;
+  width: 118px;
+  padding: 5px 10px;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+}
+
+.sem-resultados {
+  color: #f5dce1;
+  text-align: center;
+}
+
+.fundo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 20px;
+  background: rgb(20 10 16 / 70%);
+}
+
+.modal {
+  width: min(100%, 440px);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  border: 1px solid #f05ca4;
+  border-radius: 20px;
+  background: #492e38;
+  color: white;
+}
+
+.modal h2 {
+  margin-top: 0;
+  color: #ff80bd;
+  font-weight: 400;
+}
+
+.modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 14px 0;
+  color: #f5a1c9;
+  font-size: 14px;
+}
+
+.modal input,
+.modal textarea,
+.modal select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d96b9e;
+  border-radius: 8px;
+  background: #f8e7ed;
+  color: #30202a;
+}
+
+.modal textarea {
+  min-height: 75px;
+  resize: vertical;
+}
+
+.modal-acoes {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.botao-cancelar {
+  padding: 8px 14px;
+  background: #775461;
+}
+
+.modal p {
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.fechar-detalhes {
+  margin-top: 12px;
+}
+
+@media (min-width: 1100px) {
+  .lista-chamados {
+    grid-template-columns: repeat(2, minmax(0, 338px));
+  }
+
+  .chamado-card:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 338px;
+  }
+}
+
+@media (max-width: 700px) {
+  .pagina {
+    margin: 0;
+    padding: 24px 16px;
+  }
+
+  .pagina h1 {
+    line-height: 1.2;
+    margin-bottom: 22px;
+  }
+
+  .barra-acoes {
+    margin: 0 0 20px;
+  }
+
+  .lista-chamados {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .chamado-card {
+    width: 100%;
+    min-height: 210px;
+  }
+
+  .dados-secundarios {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 380px) {
+  .barra-acoes {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pesquisa {
+    width: 100%;
+  }
+
+  .botao-novo {
+    align-self: flex-end;
+  }
+
+  .chamado-card {
+    font-size: 14px;
+  }
+}
