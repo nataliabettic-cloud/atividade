@@ -1,5 +1,6 @@
 
 import { useMemo, useState } from "react";
+import NavBar from "./components/NavBar";
 import "./tecnicos.css";
 
 const tecnicosIniciais = [
@@ -134,7 +135,9 @@ function Tecnicos() {
   }
 
   return (
-    <main className="pagina-tecnicos">
+    <>
+      <NavBar />
+      <main className="pagina-tecnicos">
       <header className="cabecalho-tecnicos">
         <div className="titulo-area">
           <span className="sobretitulo">GESTÃO DE MANUTENÇÃO</span>
@@ -488,6 +491,7 @@ function Tecnicos() {
         </div>
       )}
     </main>
+    </>
   );
 }
 

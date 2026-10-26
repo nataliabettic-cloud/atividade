@@ -1,5 +1,6 @@
 
 import { useMemo, useState } from "react";
+import NavBar from "./components/NavBar";
 import {
   LayoutDashboard,
   Truck,
@@ -154,7 +155,9 @@ function App() {
   )[0];
 
   return (
-    <div className="app">
+    <>
+      <NavBar />
+      <div className="app">
       <aside className="sidebar">
         <div className="marca">
           <Settings size={39} strokeWidth={1.8} />
@@ -443,6 +446,7 @@ function App() {
         </div>
       )}
     </div>
+    </>
   );
 }
 

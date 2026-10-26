@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import NavBar from "./components/NavBar";
 import "./App.css";
 
 const manutencoesIniciais = [
@@ -81,7 +82,9 @@ function App() {
   }
 
   return (
-    <main className="pagina">
+    <>
+      <NavBar />
+      <main className="pagina">
       <header className="cabecalho">
         <h1>MANUTENÇÃO PREVENTIVA</h1>
       </header>
@@ -190,6 +193,7 @@ function App() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import NavBar from "./components/NavBar";
 import "./equipamentos.css";
 
 const equipamentosIniciais = [
@@ -88,7 +89,9 @@ function App() {
   }
 
   return (
-    <main className="pagina">
+    <>
+      <NavBar />
+      <main className="pagina">
       <h1>EQUIPAMENTOS</h1>
 
       <div className="acoes">
@@ -258,6 +261,7 @@ function App() {
         </div>
       )}
     </main>
+    </>
   );
 }
 

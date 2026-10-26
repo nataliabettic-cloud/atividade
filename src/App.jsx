@@ -7,7 +7,7 @@ import {
   Settings,
 } from "lucide-react";
 import "./App.css";
-import { Link } from "react-router";
+import NavBar from "./components/NavBar";
 
 const chamados = [
   {
@@ -79,15 +79,7 @@ function App() {
         MANUTENÇÃO INDUSTRIAL
       </header>
 
-      <nav className="navbar">
-      <Link to='/'>DashBoard</Link>
-      <Link to='/chamados'>Chamados</Link>
-      <Link to='/equipamentos'>Equipamentos</Link>
-      <Link to='/tecnicos'>Tecnicos</Link>
-      <Link to='/manutencao'>Manutencao</Link>
-      <Link to='/historico'>Historico</Link>
-
-      </nav>
+      <NavBar />
 
       <main className="dashboard">
         <h1>{paginaAtiva.toUpperCase()}</h1>
