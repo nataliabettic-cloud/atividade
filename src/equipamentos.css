@@ -1,3 +1,4 @@
+
 .equipamentos-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -162,4 +163,137 @@
   grid-column: 1 / -1;
   padding: 40px;
   font-size: 1.1rem;
+}
+
+/* Modal de cadastro: estilos adicionais */
+
+.modal-equipamento-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(20, 8, 16, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-equipamento {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  background-color: #4e3041;
+  border: 2px solid rgba(242, 194, 203, 0.25);
+  border-radius: 18px;
+  color: #f7d6de;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.modal-equipamento-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.modal-equipamento-header h2 {
+  margin: 0;
+  color: #f2c2cb;
+  font-size: 1.4rem;
+}
+
+.modal-equipamento-fechar {
+  background: transparent;
+  border: none;
+  color: #f2c2cb;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-equipamento-campos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-equipamento-campos label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.modal-equipamento-campos input,
+.modal-equipamento-campos select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  background-color: #3b2231;
+  border: 2px solid rgba(242, 194, 203, 0.25);
+  border-radius: 9px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.modal-equipamento-campos input:focus,
+.modal-equipamento-campos select:focus {
+  border-color: #df8a9a;
+}
+
+.modal-equipamento-campos input::placeholder {
+  color: #d1a1b0;
+}
+
+.modal-equipamento-campos select option {
+  background-color: #3b2231;
+  color: #fff;
+}
+
+.modal-equipamento-botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-cancelar-equipamento,
+.btn-salvar-equipamento {
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn-cancelar-equipamento {
+  background: transparent;
+  border: 1px solid rgba(242, 194, 203, 0.4);
+  color: #f2c2cb;
+}
+
+.btn-salvar-equipamento {
+  background: linear-gradient(135deg, #e62263, #f19373);
+  border: none;
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .modal-equipamento-botoes {
+    flex-direction: column-reverse;
+  }
+
+  .modal-equipamento-botoes button {
+    width: 100%;
+  }
 }
