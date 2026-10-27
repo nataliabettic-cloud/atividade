@@ -1,200 +1,76 @@
+import React, { useState } from 'react';
+import './manutencao.css';
 
-import { useState } from "react";
-import NavBar from "./components/NavBar";
-import "./App.css";
+const Manutencao = () => {
+  const [preventivas] = useState([
+    {
+      id: '1',
+      equipamento: 'Prensa Hidráulica 03',
+      data: '20/10/2026',
+      tecnico: 'Carlos Silva',
+      status: 'Agendada'
+    },
+    {
+      id: '2',
+      equipamento: 'Esteira Industrial 05',
+      data: '22/10/2026',
+      tecnico: 'A definir',
+      status: 'Agendada'
+    },
+    {
+      id: '3',
+      equipamento: 'Motor Industrial 07',
+      data: '25/10/2026',
+      tecnico: 'Juliana Santos',
+      status: 'Pendente'
+    }
+  ]);
 
-const manutencoesIniciais = [
-  {
-    id: 1,
-    equipamento: "Prensa Hidráulica 03",
-    data: "2026-10-20",
-    tecnico: "Carlos Silva",
-    status: "Agendada",
-  },
-  {
-    id: 2,
-    equipamento: "Esteira Industrial 05",
-    data: "2026-10-22",
-    tecnico: "A definir",
-    status: "Agendada",
-  },
-  {
-    id: 3,
-    equipamento: "Motor Industrial 07",
-    data: "2026-10-25",
-    tecnico: "Juliana Santos",
-    status: "Pendente",
-  },
-];
-
-function App() {
-  const [manutencoes, setManutencoes] = useState(
-    manutencoesIniciais
-  );
-  const [mostrarFormulario, setMostrarFormulario] = useState(false);
-
-  const [formulario, setFormulario] = useState({
-    equipamento: "",
-    data: "",
-    tecnico: "",
-    status: "Agendada",
-  });
-
-  function atualizarCampo(event) {
-    const { name, value } = event.target;
-
-    setFormulario((anterior) => ({
-      ...anterior,
-      [name]: value,
-    }));
-  }
-
-  function agendarManutencao(event) {
-    event.preventDefault();
-
-    const novaManutencao = {
-      id: Date.now(),
-      ...formulario,
-      tecnico: formulario.tecnico.trim() || "A definir",
-    };
-
-    setManutencoes((anterior) =>
-      [...anterior, novaManutencao].sort(
-        (a, b) => a.data.localeCompare(b.data)
-      )
-    );
-
-    setFormulario({
-      equipamento: "",
-      data: "",
-      tecnico: "",
-      status: "Agendada",
-    });
-
-    setMostrarFormulario(false);
-  }
-
-  function formatarData(data) {
-    if (!data) return "";
-
-    const [ano, mes, dia] = data.split("-");
-    return `${dia}/${mes}/${ano}`;
-  }
+  const getStatusClass = (status) => {
+    return status.toLowerCase() === 'agendada' ? 'status-scheduled' : 'status-pending';
+  };
 
   return (
-    <>
-      <NavBar />
-      <main className="pagina">
-      <header className="cabecalho">
-        <h1>MANUTENÇÃO PREVENTIVA</h1>
-      </header>
+    <div className="preventiva-container">
+      <div className="preventiva-header-section">
+        <h1 className="page-title">MANUTENÇÃO PREVENTIVA</h1>
 
-      <div className="acoes">
-        <button
-          className="botao-agendar"
-          onClick={() => setMostrarFormulario(!mostrarFormulario)}
-        >
-          + AGENDAR MANUTENÇÃO
-        </button>
+        <div className="preventiva-actions-bar">
+          <button className="btn-agendar" onClick={() => alert('Abrir modal de agendamento de manutenção!')}>
+            + AGENDAR MANUTENÇÃO
+          </button>
+        </div>
+
+        <h2 className="section-subtitle">Próximas manutenções</h2>
       </div>
 
-      {mostrarFormulario && (
-        <form
-          className="formulario"
-          onSubmit={agendarManutencao}
-        >
-          <h2>Nova manutenção</h2>
+      <div className="preventiva-grid">
+        {preventivas.map((item) => (
+          <div key={item.id} className="preventiva-card">
+            <div className="card-top">
+              <h3 className="equipamento-name">{item.equipamento}</h3>
+            </div>
 
-          <label>
-            Equipamento
-            <input
-              name="equipamento"
-              value={formulario.equipamento}
-              onChange={atualizarCampo}
-              placeholder="Ex.: Prensa Hidráulica 01"
-              required
-            />
-          </label>
-
-          <label>
-            Data da manutenção
-            <input
-              type="date"
-              name="data"
-              value={formulario.data}
-              onChange={atualizarCampo}
-              required
-            />
-          </label>
-
-          <label>
-            Técnico responsável
-            <input
-              name="tecnico"
-              value={formulario.tecnico}
-              onChange={atualizarCampo}
-              placeholder="Nome do técnico"
-            />
-          </label>
-
-          <label>
-            Status
-            <select
-              name="status"
-              value={formulario.status}
-              onChange={atualizarCampo}
-            >
-              <option value="Agendada">Agendada</option>
-              <option value="Pendente">Pendente</option>
-              <option value="Concluída">Concluída</option>
-            </select>
-          </label>
-
-          <div className="botoes-formulario">
-            <button type="submit" className="botao-agendar">
-              Salvar manutenção
-            </button>
-
-            <button
-              type="button"
-              className="botao-cancelar"
-              onClick={() => setMostrarFormulario(false)}
-            >
-              Cancelar
-            </button>
+            <div className="card-body">
+              <p><strong>Data:</strong> {item.data}</p>
+              <p>
+                <strong>Técnico:</strong>{' '}
+                <span className={item.tecnico === 'A definir' ? 'text-pending' : ''}>
+                  {item.tecnico}
+                </span>
+              </p>
+              <p>
+                <strong>Status:</strong>{' '}
+                <span className={`status-badge ${getStatusClass(item.status)}`}>
+                  {item.status}
+                </span>
+              </p>
+            </div>
           </div>
-        </form>
-      )}
-
-      <section className="secao-manutencoes">
-        <h2>Próximas manutenções</h2>
-
-        <div className="lista-manutencoes">
-          {manutencoes.map((manutencao) => (
-            <article className="cartao" key={manutencao.id}>
-              <h3>{manutencao.equipamento}</h3>
-
-              <div className="detalhes">
-                <p>
-                  <span>Data:</span>{" "}
-                  {formatarData(manutencao.data)}
-                </p>
-
-                <p>
-                  <span>Técnico:</span> {manutencao.tecnico}
-                </p>
-
-                <p>
-                  <span>Status:</span> {manutencao.status}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-    </main>
-    </>
+        ))}
+      </div>
+    </div>
   );
-}
+};
 
-export default App;
+export default Manutencao;
