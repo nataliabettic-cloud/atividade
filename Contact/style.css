@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0px 2px 12px #00000042;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    opacity: 0.6;
+    transition: all 200ms ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-item:hover{
+    opacity: 1;
+}
+
+.nav-icon{
+    width: 40px;
+    height: auto;
+}
+
+.wrap-open, .wrap-open img {
+    display: none;
+}
+#menu-mobile, #menu-mobile img {
+    display: none;
+}
+
+@media (width <= 1000px){
+    nav{
+        display: none;
+
+    }
+    .wrap-open{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        opacity: 0.5;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        transition: all 200ms ease-in-out;
+        border-radius: 5px;
+    }
+    
+    .wrap-open:hover{
+    cursor: pointer;
+    opacity: 1;
+    }
+    .wrap-open img{
+        width: 35px;
+        display: flex;
+    }
+    #menu-mobile{
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 32px;
+        height: 100vh;
+        background-color: #ffffff;
+        animation: deCima 1s ease-in-out;
+    }
+    #menu-mobile a{
+        text-decoration: none;
+        color: black;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        opacity: 0.5;
+        transition: all 200ms ease-in-out;
+    }
+    #menu-mobile a:hover{
+        opacity: 1;
+        font-weight: bold;
+    }
+    #menu-mobile img{
+        width: 35px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: 0.5;
+        transition: all 200ms ease-in-out;
+    }
+    #menu-mobile img:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+    #menu-mobile img{
+        display: block;
+    }
+}
+@keyframes deCima {
+    0%{
+        transform: translateY(-100%);
+        height: 0vh;
+        opacity: 0;
+    }
+    
+    
+}
+

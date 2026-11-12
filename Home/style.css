@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0px 2px 12px #00000042;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 999;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    opacity: 0.6;
+    transition: all 200ms ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-item:hover{
+    opacity: 1;
+}
+
+.nav-icon{
+    width: 40px;
+    height: auto;
+}
+
+.s1{
+    background-image: url('../assets/images/images.jpg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    box-shadow: 0px 2px 12px #000000c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap-divs{
+    padding: 20px;
+}
+
+.title-div{
+    padding: 50px;
+    font-size: 36px;
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 2px 3px 1px black;
+}
+.wrap-btns{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 15px;
+}
+.wrap-btns button{
+    padding: 8px 28px 8px 28px;
+    border-radius: 999px;
+    border: none;
+    border: 2px solid white;
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: none;
+    box-shadow: 2px 3px 1px black;
+    opacity: 0.7;
+    transition: all 400ms linear;
+
+}
+.wrap-btns button:hover{
+    cursor: pointer;
+    opacity: 1;
+    border: 2px solid white;
+    color: #6200ff;
+    box-shadow: 2px 3px 1px rgb(255, 255, 255);
+    transform: scale(1.1);
+}
+
+.s2{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.wrap-img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
+
+.card{
+    width: 400px;
+    box-shadow: 0px 2px 50px #464545;
+    transition: all 200ms ease-in-out;
+    border-radius: 10px;
+
+}
+
+.card:hover{
+    box-shadow: 2px 5px 50px hsl(0, 0%, 9%);
+    transform: translateY(10px)
+}
+
+.wrap-text{
+    padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.wrap-text h3{
+    font-size: 22px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+
+}
+
+.wrap-text p{
+    font-size: 18px;
+
+}
+
+
+.wrap-open, .wrap-open img {
+    display: none;
+}
+#menu-mobile, #menu-mobile img {
+    display: none;
+}
+
+@media (width <= 1000px){
+    nav{
+        display: none;
+
+    }
+    .wrap-open{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        opacity: 0.5;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        transition: all 200ms ease-in-out;
+        border-radius: 5px;
+    }
+    
+    .wrap-open:hover{
+    cursor: pointer;
+    opacity: 1;
+    }
+    .wrap-open img{
+        width: 35px;
+        display: flex;
+    }
+    #menu-mobile{
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 32px;
+        height: 100vh;
+        background-color: #ffffff;
+        animation: deCima 1s ease-in-out;
+    }
+    #menu-mobile a{
+        text-decoration: none;
+        color: black;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        opacity: 0.5;
+        transition: all 200ms ease-in-out;
+    }
+    #menu-mobile a:hover{
+        opacity: 1;
+        font-weight: bold;
+    }
+    #menu-mobile img{
+        width: 35px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: 0.5;
+        transition: all 200ms ease-in-out;
+    }
+    #menu-mobile img:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+    #menu-mobile img{
+        display: block;
+    }
+    .title-div {
+        padding: 20px;
+        font-size: 28px;
+    }
+
+    
+    
+.container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.container img {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+.texto {
+    flex: 1;
+}
+}
+
+@keyframes deCima {
+    0%{
+        transform: translateY(-100%);
+        height: 0vh;
+        opacity: 0;
+    }
+    
+    
+}
+
